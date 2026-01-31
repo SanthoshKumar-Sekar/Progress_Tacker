@@ -4,44 +4,33 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.progress_tracker.ui.theme.Progress_trackerTheme
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.progress_tracker.constants.NavigationRoutes
+import com.example.progress_tracker.pages.HomeScreen
+import com.example.progress_tracker.ui.theme.ProgressTrackerTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var navController: NavHostController
         enableEdgeToEdge()
         setContent {
-            Progress_trackerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+            navController = rememberNavController()
+            ProgressTrackerTheme {
+                NavHost(
+                    startDestination = NavigationRoutes.START_DESTINATION,
+                    navController = navController
+                ) {
+                    composable("HomePage") {
+                        HomeScreen(navController = navController)
+                    }
+
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Progress_trackerTheme {
-        Greeting("Android")
     }
 }

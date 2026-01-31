@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">progress_tracker</string>
+    <string name="homePageTitle">Create Your Profile</string>
+    <string name="homePageBody">Let\'s get to know you better to personalize your goal tracking experience</string>
+    <string name="fullNameText">FULL NAME</string>
+    <string name="ageText">AGE</string>
+    <string name="genderText">GENDER </string>
+    <string name="emailOrPhoneText">Email or Phone</string>
+    <string name="continueText">Continue</string>
+    <string name="existingAccountText">Already have an account?</string>
+    <string name="loginText">Login</string>
 </resources>
